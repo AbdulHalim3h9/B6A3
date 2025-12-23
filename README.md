@@ -60,7 +60,7 @@ CREATE TABLE "Bookings" (
 
 ---
 
-## Section 3: SQL Queries
+## SQL Queries
 
 ### Query 1: JOIN
 **Description:** Retrieve booking information along with customer and vehicle details.

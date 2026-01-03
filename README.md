@@ -2,62 +2,8 @@
 **Database Design & SQL Assignment Submission**
 
 ---
-
-## Section 1: ERD Link
 🔗 **Public ERD Link:**  
-https://lucid.app/lucidchart/0a1daff3-717d-4622-be9f-cb87a79d7406/edit?viewport_loc=-1328%2C-297%2C1844%2C960%2C0_0&invitationId=inv_ffaa0101-b83b-42b4-a7c3-37b7afe6221a
-
----
-
-## Section 2: Database Schema
-
-### Table Creation Queries
-
-```sql
-CREATE TYPE user_role AS ENUM ('Admin', 'Customer');
-
-CREATE TYPE vehicle_type AS ENUM ('car','bike','truck');
-
-CREATE TYPE vehicle_status AS ENUM ('available','rented','maintenance');
-
-CREATE TYPE booking_status AS ENUM ('pending','confirmed','completed','cancelled');
-
-CREATE TABLE "Users" (
-  "user_id" SERIAL PRIMARY KEY,
-  "name" VARCHAR(100) NOT NULL,
-  "email" VARCHAR(255) NOT NULL UNIQUE,
-  "phone" VARCHAR(20),
-  "role" user_role NOT NULL,
-  "password" VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE "Vehicles" (
-  "vehicle_id" SERIAL PRIMARY KEY,
-  "name" VARCHAR(100) NOT NULL,
-  "type" vehicle_type NOT NULL,
-  "model" VARCHAR(100),
-  "registration_number" VARCHAR(50) NOT NULL UNIQUE,
-  "rental_price" DECIMAL(10,2) NOT NULL,
-  "status" vehicle_status NOT NULL
-);
-
-CREATE TABLE "Bookings" (
-  "booking_id" SERIAL PRIMARY KEY,
-  "user_id" INT NOT NULL,
-  "vehicle_id" INT NOT NULL,
-  "start_date" DATE NOT NULL,
-  "end_date" DATE NOT NULL,
-  "status" booking_status NOT NULL,
-  "total_cost" DECIMAL(10,2) NOT NULL,
-  CONSTRAINT "FK_Bookings_user_id"
-    FOREIGN KEY ("user_id")
-      REFERENCES "Users"("user_id"),
-  CONSTRAINT "FK_Bookings_vehicle_id"
-    FOREIGN KEY ("vehicle_id")
-      REFERENCES "Vehicles"("vehicle_id")
-);
-```
-
+https://lucid.app/lucidchart/0a1daff3-717d-4622-be9f-cb87a79d7406/edit?viewport_loc=-1525%2C103%2C1651%2C655%2C0_0&invitationId=inv_ffaa0101-b83b-42b4-a7c3-37b7afe6221a
 ---
 
 ## SQL Queries
